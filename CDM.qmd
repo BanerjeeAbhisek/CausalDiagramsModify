@@ -1,0 +1,31 @@
+---
+title: "Cuasal Diagram Modified"
+format: html
+editor: visual
+---
+
+## Research Questions
+
+No Diagrams to change
+
+## Identification
+
+No Diagrams to change
+
+## Causal Diagrams
+
+##### pg 11
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "Coin flip (X)" [pos="0,1!"]
+  "Cake (Y)" [pos="3,1!"]
+  "Coin flip (X)" -> "Cake (Y)"
+  
+}
+```

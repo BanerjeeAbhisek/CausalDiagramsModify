@@ -91,3 +91,757 @@ digraph "Causal Diagramm RDD" {
   "Z" -> "Y"
 }
 ```
+
+## Drawing Causal Diagrams
+
+##### pg 2
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "Coin flip (X)" [pos="0,0!"]
+  "Cake (Y)" [pos="4,0!"]
+ 
+  "Coin flip (X)" -> "Cake (Y)"
+}
+```
+
+##### pg 9
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "U 3" [pos="0,4!"]
+  "U 4" [pos="0,8!"]
+  "U 2" [pos="4,2!"]
+  "gender" [pos="4,8!"]
+  "hours" [pos="4,12!"]
+  "U 1" [pos="8,0!"]
+  "race" [pos="8,4!"]
+  "prefs" [pos="8,10!"]
+  "time" [pos="8,12!"]
+  "age" [pos="10,10!"]
+  "SES" [pos="12,6!"]
+  "acedemics" [pos="16,0!"]
+  "U 5" [pos="16,4!"]
+  "dropOut" [pos="16,8!",  fontcolor="grey"]
+  "classes" [pos="16,12!",  fontcolor="grey"]
+  "location" [pos="20,4!"]
+  "webAccess" [pos="20,12!"]
+ 
+  "U 3" -> "gender"
+  "U 3" -> "acedemics"
+  "U 4" -> "gender"
+  "U 4" -> "SES"
+  "U 2" -> "race"
+  "U 2" -> "SES"
+  "gender" -> "time"
+  "gender" -> "prefs"
+  "gender" -> "SES"
+  "hours" -> "time"
+  "U 1" -> "race"
+  "U 1" -> "acedemics"
+  "race" -> "prefs"
+  "race" -> "hours"
+  "prefs" -> "time"
+  "time" -> "classes"
+  "age" -> "time"
+  "age" -> "hours"
+  "age" -> "prefs"
+  "age" -> "dropOut"
+  "age" -> "SES"
+  "SES" -> "age"
+  "SES" -> "prefs"
+  "acedemics" -> "hours"
+  "acedemics" -> "U 5"
+  "U 5" -> "dropOut"
+  "U 5" -> "SES"
+  "U 5" -> "location"
+  "location" -> "webAccess"
+  "webAccess" -> "classes"
+  "gender" -> "dropOut"
+  "classes" -> "dropOut"
+  
+}
+```
+
+##### pg 11
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "U 3" [pos="0,4!"]
+  "U 4" [pos="0,0!"]
+  "hours" [pos="8,6!"]
+  "age" [pos="12,6!"]
+  "SES" [pos="4,0!"]
+  "acedemics" [pos="0,6!"]
+  "U 5" [pos="8,0!"]
+  "dropOut" [pos="16,4!",  fontcolor="grey"]
+  "classes" [pos="12,2!",  fontcolor="grey"]
+  "demographics" [pos="0,2!"]
+   "location" [pos="10,0!"]
+ 
+  "U 4" -> "SES"
+  "U 4" -> "demographics"
+  "demographics" -> "hours"
+  "demographics" -> "dropOut"
+  "demographics" -> "classes"
+  "demographics" -> "U 5"
+  "U 3" -> "demographics"
+  "U 3" -> "acedemics"
+  "acedemics" -> "hours"
+  "acedemics" -> "dropOut"
+  "SES" -> "classes"
+  "U 5" -> "SES"
+  "U 5" -> "location"
+  "location" -> "classes"
+  "hours" -> "classes"
+  "classes" -> "dropOut"
+  "age" -> "hours"
+  "age" -> "dropOut"
+  "age" -> "classes"
+
+  
+}
+```
+
+##### pg 13 (fig: 4)
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "I Punch you" [pos="0,0!"]
+  "You Punch me" [pos="2,2!"]
+  
+  "I Punch you" -> "You Punch me"
+  "You Punch me" -> "I Punch you"
+
+  
+}
+```
+
+##### pg 13 (fig: 5)
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "I Punch you (t)" [pos="0,0!"]
+  "You Punch me (t)" [pos="0,2!"]
+  "I Punch you (t+1)" [pos="2,0!"]
+  "You Punch me (t+1)" [pos="2,2!"]
+  
+  "I Punch you (t)" -> "You Punch me (t+1)"
+  "You Punch me (t)" -> "I Punch you (t+1)"
+
+  
+}
+```
+
+## Causal Paths 
+
+pg 3
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "A" [pos="0,0!"]
+  "B" [pos="2,0!"]
+  "C" [pos="4,0!"]
+  "D" [pos="4,2!"]
+  "E" [pos="2,2!"]
+
+  
+  "A" -> "B"
+   "B" ->  "C"
+  "D" -> "E"
+  "D" -> "C"
+  "E" -> "A"
+  "E" -> "B"
+
+  
+}
+```
+
+pg 7
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "A" [pos="2,2!"]
+  "B" [pos="0,4!"]
+  "C" [pos="4,4!"]
+  "Treatment" [pos="0,0!"]
+  "Outcome" [pos="4,0!"]
+
+  
+  "A" -> "Outcome"
+   "B" ->  "C"
+  "B" -> "A"
+  "B" -> "Treatment"
+  "Treatment" -> "A"
+  "Treatment" -> "Outcome"
+"C" -> "Outcome"
+  
+}
+```
+
+pg 8
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "Income" [pos="0,3!"]
+  "Wine" [pos="0,2!"]
+  "Drugs" [pos="4,0!"]
+  "U 1" [pos="4,5!"]
+  "Lifespan" [pos="8,2!"]
+  "Health" [pos="8,3!"]
+
+  
+  "Wine" -> "Lifespan"
+   "Wine" ->  "Drugs"
+  "Drugs" -> "Lifespan"
+  "Income" -> "Wine"
+  "Income" -> "Lifespan"
+  "U 1" -> "Health"
+"U 1" -> "Income"
+"Health" -> "Lifespan"
+  "Health" -> "Wine"
+  
+}
+```
+
+## Finding front doors
+
+##### pg 7
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "Charter" [pos="0,0!"]
+  "Student Achievement" [pos="4,0!"]
+  "All Kind of stuff" [pos="2,2!"]
+  
+  "Charter" -> "Student Achievement"
+  "All Kind of stuff" -> "Student Achievement"
+  "All Kind of stuff" -> "Charter"
+
+  
+}
+```
+
+pg 9
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "Lottery Win" [pos="0,2!"]
+  "Charter" [pos="0,0!"]
+  "Student Achievement" [pos="4,0!"]
+  "All Kind of stuff" [pos="2,2!"]
+  
+  "Charter" -> "Student Achievement"
+  "All Kind of stuff" -> "Student Achievement"
+  "All Kind of stuff" -> "Charter"
+   "Lottery Win" -> "Charter"
+
+  
+}
+```
+
+pg 13
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "Natural Randomness" [pos="0,2!"]
+  "Treatment" [pos="0,0!"]
+  "Outcome" [pos="4,0!"]
+  "All Kind of stuff" [pos="2,2!"]
+  
+  "Treatment" -> "Outcome"
+  "All Kind of stuff" -> "Outcome"
+  "All Kind of stuff" -> "Treatment"
+   "Natural Randomness" -> "Treatment"
+
+  
+}
+```
+
+pg 18
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "U 1" [pos="0,4!"]
+  "Wind Direction" [pos="0,2!"]
+  "Weather" [pos="2,4!"]
+  "Pollution" [pos="4,2!",  fontcolor="grey"]
+  "Economic activity" [pos="6,0!"]
+  "Seasons" [pos="6,4!"]
+  "Driving" [pos="8,2!",  fontcolor="grey"]
+  
+  "Wind Direction" -> "Pollution"
+  "U 1" -> "Weather"
+  "U 1" -> "Wind Direction"
+  "Seasons" -> "Wind Direction"
+  "Seasons" -> "Pollution"
+  "Weather" -> "Pollution"
+  "Seasons" -> "Driving"
+  "Weather" -> "Driving"
+  "Driving" -> "Pollution"
+  "Pollution" -> "Driving"
+  "Economic activity" -> "Driving"
+  "Economic activity" -> "Pollution"
+
+  
+}
+```
+
+pg 22
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "M" [pos="2,2!"]
+  "Treatment" [pos="0,2!"]
+  "W" [pos="2,4!"]
+  "Outcome" [pos="4,2!"]
+
+  
+  "W" -> "Treatment"
+  "Treatment" -> "M"
+  "M" -> "Outcome"
+  "W" -> "Outcome"
+
+  
+}
+```
+
+pg 26
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "TarlnLungs" [pos="2,2!"]
+  "Smoking" [pos="0,2!"]
+  "Lots of things" [pos="2,4!"]
+  "Cancer" [pos="4,2!"]
+
+  
+  "Lots of things" -> "Smoking"
+  "Smoking" -> "TarlnLungs"
+  "TarlnLungs" -> "Cancer"
+  "Lots of things" -> "Cancer"
+
+  
+}
+```
+
+## Treatment Effect
+
+pg 23
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "Others Bad Driving" [pos="0,4!"]
+  "Traffic School" [pos="0,2!"]
+  "Your Bad Driving" [pos="2,4!"]
+  "Your Furure Driving" [pos="4,2!"]
+
+  
+  "Your Bad Driving" -> "Traffic School"
+   "Your Bad Driving" ->  "Your Furure Driving"
+  "Others Bad Driving" -> "Traffic School"
+  "Traffic School" -> "Your Furure Driving"
+
+  
+}
+```
+
+## Matching
+
+pg 11
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "A" [pos="0,2!"]
+  "B" [pos="2,2!"]
+  "C" [pos="4,2!"]
+  "Treatment" [pos="0,0!"]
+  "Outcome" [pos="4,0!"]
+
+
+  
+  "A" -> "Treatment"
+   "B" ->  "Treatment"
+  "B" -> "Outcome"
+  "A" -> "Outcome"
+  "C" -> "Treatment"
+  "C" -> "Outcome"
+   "Treatment"  -> "Outcome"
+}
+
+
+```
+
+pg 15
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "A" [pos="0,2!"]
+  "B" [pos="2,2!"]
+  "C" [pos="4,2!"]
+  "Treatment" [pos="0,0!"]
+  "Outcome" [pos="4,0!"]
+  "Treatment propensity" [pos="0,1!"]
+
+  
+  "A" -> "Treatment propensity"
+   "B" ->  "Treatment propensity"
+  "B" -> "Outcome"
+  "A" -> "Outcome"
+  "C" -> "Treatment propensity"
+  "C" -> "Outcome"
+   "Treatment"  -> "Outcome"
+   "Treatment propensity"  -> "Treatment"
+}
+
+
+```
+
+## Simulation
+
+No causal diagrams
+
+## Fixed Effects
+
+pg 4
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "ChancellorVisit" [pos="0,0!",  fontcolor="grey"]
+  "CurrentPolitics" [pos="0,1!"]
+  "CultureOfPopulation" [pos="2,2!"]
+  "Geography" [pos="2,1!"]
+  "TradeWithGermany" [pos="4,0!",  fontcolor="grey"]
+  "HistoryWithGermany" [pos="4,1!"]
+
+  
+  "ChancellorVisit" -> "TradeWithGermany"
+   "CurrentPolitics" ->  "ChancellorVisit"
+  "CurrentPolitics" -> "TradeWithGermany"
+  "HistoryWithGermany" -> "ChancellorVisit"
+  "HistoryWithGermany" -> "TradeWithGermany"
+  "Geography" -> "ChancellorVisit"
+   "Geography"  -> "TradeWithGermany"
+   "CultureOfPopulation" -> "ChancellorVisit"
+   "CultureOfPopulation"  -> "TradeWithGermany"
+}
+
+
+```
+
+pg 6
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "ChancellorVisit" [pos="0,0!"]
+  "CurrentPolitics" [pos="0,2!"]
+  "TradeWithGermany" [pos="4,0!"]
+  "Country" [pos="4,2!"]
+
+  
+  "ChancellorVisit" -> "TradeWithGermany"
+   "CurrentPolitics" ->  "ChancellorVisit"
+  "CurrentPolitics" -> "TradeWithGermany"
+   "Country" -> "ChancellorVisit"
+   "Country"  -> "TradeWithGermany"
+}
+
+
+```
+
+## Event Studies
+
+pg 4
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "Time" [pos="2,2!"]
+  "AfterEvent" [pos="0,0!"]
+  "Treatment" [pos="2,0!"]
+  "Outcome" [pos="4,0!"]
+
+  
+  "Time" -> "AfterEvent"
+   "Time" ->  "Outcome"
+  "AfterEvent" -> "Treatment"
+   "Treatment" -> "Outcome"
+  
+}
+
+
+```
+
+## Difference-in-Differences
+
+pg 2
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "Time" [pos="2,2!"]
+  "Treatment" [pos="0,0!"]
+  "Outcome" [pos="4,0!"]
+
+  
+  "Time" -> "Treatment"
+   "Time" ->  "Outcome"
+   "Treatment" -> "Outcome"
+  
+}
+
+
+```
+
+pg 4
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "Time" [pos="2,2!"]
+  "Treatment" [pos="-1,0!"]
+  "Outcome" [pos="5,0!"]
+   "Group" [pos="2,-2!"]
+
+  
+  "Time" -> "Treatment"
+   "Time" ->  "Outcome"
+   "Treatment" -> "Outcome"
+   "Group" -> "Treatment"
+   "Group" ->  "Outcome"
+  
+}
+
+
+```
+
+## Instrumental Variable
+
+pg 3
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "Randomization" [pos="0,2!"]
+  "Treatment" [pos="2,0!"]
+  "Annoyance" [pos="4,2!"]
+   "Outcome" [pos="6,0!"]
+
+  
+  "Randomization" -> "Treatment"
+   "Annoyance" ->  "Outcome"
+   "Treatment" -> "Outcome"
+   "Annoyance" -> "Treatment"
+
+  
+}
+
+
+```
+
+pg 8
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "A" [pos="2,0!"]
+  "B" [pos="2,2!"]
+  "C" [pos="0,2!"]
+  "D" [pos="4,2!"]
+  "X" [pos="2,1!",  fontcolor="grey"]
+  "Y" [pos="4,1!",  fontcolor="grey"]
+  "Z" [pos="0,1!",  fontcolor="lightblue"]
+
+  
+  "A" -> "Y"
+   "B" ->  "Z"
+   "B" -> "Y"
+   "C" -> "Z"
+   "C" ->  "X"
+   "D" -> "X"
+   "D" -> "Y"
+   "X" ->  "Y"
+   "Z" -> "X"
+   "Z" -> "A"
+}
+
+
+```
+
+## Regression Discontinuity
+
+pg 7
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "Running Variable" [pos="0,2!"]
+  "Above Cutoff" [pos="0,0!"]
+  "Treatment" [pos="2,0!"]
+  "Z" [pos="2,2!"]
+  "Outcome" [pos="4,0!"]
+
+  
+  "Above Cutoff" -> "Treatment"
+   "Running Variable" ->  "Above Cutoff"
+   "Running Variable" -> "Outcome"
+   "Treatment" -> "Outcome"
+   "Z" ->  "Running Variable"
+   "Z" -> "Outcome"
+ 
+}
+
+
+```
+
+pg 33
+
+```{dot}
+digraph "Causal Diagramm RDD" {
+  layout=neato
+  fontname="Helvetica,Arial,sans-serif"
+  node [fontname="Helvetica,Arial,sans-serif"]
+  edge [fontname="Helvetica,Arial,sans-serif"]
+  node [shape=none];
+  "Running Variable" [pos="0,2!"]
+  "Above Cutoff" [pos="0,0!"]
+  "Treatment" [pos="2,0!"]
+  "Z" [pos="2,2!"]
+  "Outcome" [pos="4,0!"]
+
+  
+  "Above Cutoff" -> "Treatment"
+   "Running Variable" ->  "Above Cutoff"
+   "Running Variable" -> "Outcome"
+   "Z" -> "Treatment"
+   "Treatment" -> "Outcome"
+   "Z" ->  "Running Variable"
+   "Z" -> "Outcome"
+ 
+}
+
+
+```
+
+## Further topics
+
+No causal diagrams
